@@ -114,6 +114,8 @@ class RayDAPOTrainer(RayPPOTrainer):
                             self.rm_wg.start_profile()
 
                 new_batch: DataProto = DataProto.from_single_dict(batch_dict)
+                print(f'{new_batch.non_tensor_batch["conversastions"].shape=}')
+
                 num_gen_batches += 1
                 # pop those keys for generation
                 if "multi_modal_data" in new_batch.non_tensor_batch.keys():
